@@ -1,0 +1,42 @@
+---
+import ExperienceItem from './ExperienceItem.astro'
+
+const EXPERIENCE = [
+	{
+		title: 'Front End Developer',
+		company: ' YAPIKO SOFTWARE HOUSE S.L.',
+		date: '2018 - Nowdays',
+		description:
+			'Web and mobile developer with React and React Native languages mainly, but also web development with Wordpress. I have used a big amount of tools and technologies such as Jira, Confluence, Bitbucket, Webstorm IDE, XCode, Android studio, Google play and App stores, Realm DB, Redux, Jest, ESLint, Firebase and Firestore. Etc',
+		link: 'https://yapiko.com/',
+	},
+	{
+		title: 'Junior Developer',
+		company: 'INDRA SISTEMAS S.A.',
+		date: '2017',
+		description:
+			'Practices as a control and air surveillance application developer in Java using Eclipse framework in a Maven proyect and Linux operative system in Ubuntu distribution. I also used SVN control system with tortoise client and SQL database.',
+		link: 'https://www.indracompany.com/',
+	},
+	{
+		title: 'Junior Developer',
+		company: 'SPIKA TECH S.L.',
+		date: '2016',
+		description:
+			'University practices as a travel and transport website developer over the CMS Joomla using php5, bootstrap, jQuery and SQL database.',
+		link: 'https://www.spikatech.com/',
+	},
+	{
+		title: 'Administrative',
+		company: 'GiGroup – BANCO SANTANDER',
+		date: '2015',
+		description:
+			'In charge of the data digitalization campaign in two offices in Parla (Madrid). Also working as casher in some offices in Móstoles and Fuenlabrada.',
+		link: 'https://www.bancosantander.es/',
+	},
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+	{EXPERIENCE.map((experience) => <ExperienceItem {...experience} />)}
+</ol>
