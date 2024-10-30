@@ -20,9 +20,9 @@ const { title, description, company, date, link } = Astro.props
 	>
 	<h3 class="text-lg font-semibold text-yellow-200">{title}</h3>
 	<p
+		set:html={description}
 		class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400 text-pretty"
 	>
-		{description}
 	</p>
 	{
 		link && (
