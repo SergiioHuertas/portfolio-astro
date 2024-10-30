@@ -1,24 +1,30 @@
 ---
-import DefaultBadge from '../components/DefaultBadge.astro'
-import Layout from '../layouts/Layout.astro'
 import LinkedInIcon from '../components/icons/LinkedIn.astro'
 import MailToIcon from '../components/icons/MailTo.astro'
-import Experience from '../components/Experience.astro'
-import SectionContainer from '../components/SectionContainer.astro'
 import SuitCase from '../components/icons/SuitCase.astro'
+import CodeIcon from '../components/icons/Code.astro'
+import DefaultBadge from '../components/DefaultBadge.astro'
+import Layout from '../layouts/Layout.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import Experience from '../components/Experience.astro'
+import Projects from '../components/Projects.astro'
+import { Image } from 'astro:assets'
 ---
 
 <Layout
 	title="Sergio Huertas - Desarrollador y Programador Web"
 	description="Contrata a Sergio Huertas, un desarrollador web con más de 6 años de experiencia en el desarrollo de aplicaciones web."
 >
-	<main>
+	<main class="px-4">
 		<SectionContainer class="py-16 md:py-36">
 			<div class="flex gap-4 mb-4">
-				<img
+				<Image
 					src="/sergio-logo.webp"
-					alt="Sergio Huertas"
+					width={16}
+					height={16}
+					loading="eager"
 					class="rounded-full shadow-lg size-16"
+					alt="Sergio Huertas"
 				/>
 				<a
 					href="https://www.linkedin.com/in/sergio-huertas-838766104/"
@@ -30,44 +36,52 @@ import SuitCase from '../components/icons/SuitCase.astro'
 				</a>
 			</div>
 			<h1
-				class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+				class="text-3xl md:text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
 			>
 				Hey, I'm Sergio Huertas
 			</h1>
-			<h2 class="text-2xl text-wrap">
+			<h2 class="text-xl lg:text-2xl text-wrap max-w-[800px]">
 				<span>+6 years experience. </span><span class="text-yellow-200/90"
 					>Front End Developer.</span
 				> From Madrid, Spain 🇪🇸. <span class="opacity-75"
 					>My speciality is to develop web apps.</span
 				>
 			</h2>
-			<nav class="flex gap-x-4 mt-8">
+			<nav class="flex flex-wrap gap-4 mt-8">
 				<a
 					href="https://www.linkedin.com/in/sergio-huertas-838766104/"
 					target="_blank"
 					rel="noopener noreferer"
-					class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-2 px-4 bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+					class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
 				>
-					<LinkedInIcon class="size-6" />
+					<LinkedInIcon class="size-4 md:size-6" />
 					LinkedIn
 				</a>
 				<a
 					href="mailto:ser_g@hotmail.es"
 					target="_blank"
 					rel="noopener noreferer"
-					class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-2 px-4 bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+					class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
 				>
-					<MailToIcon class="size-6" />
+					<MailToIcon class="size-4 md:size-6" />
 					Contact me
 				</a>
 			</nav>
 		</SectionContainer>
 		<SectionContainer id="experience">
-			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
 				<SuitCase class="size-8" />
 				Experience
 			</h2>
 			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="projects">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<CodeIcon class="size-8" />
+				Projects
+			</h2>
+			<Projects />
 		</SectionContainer>
 	</main>
 </Layout>

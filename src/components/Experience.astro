@@ -6,37 +6,39 @@ const EXPERIENCE = [
 		title: 'Front End Developer',
 		company: ' YAPIKO SOFTWARE HOUSE S.L.',
 		date: '2018 - Nowdays',
-		description:
-			`Working in multiple projects for many international clients, mainly <span class="highligh-desc">sports betting related</span>. I have contributed to develop and maintain the <span class="highligh-desc">React</span> FE solution of a sport betting platform used by clients <span class="highligh-desc">all over the world</span> (Canada, Switzerland, Portugal, Israel, etc.). This solution is characterised by the integration of PAMs, feeds, Retail, Live Match Tracker services and authentication systems. <br/><br/> Other projects I have worked on are mobile games and sport betting migration to <span class="highligh-desc">React Native</span>, <span class="highligh-desc">Google Maps</span> integration with system bought by "The fork", internal website for <span class="highligh-desc">Naturgy</span>, and many more.`,
+		description: `Working in multiple projects for many international clients, mainly <span class="highligh-desc">sports betting related</span>. I have contributed to develop and maintain the <span class="highligh-desc">React</span> FE solution of a sport betting platform used by clients <span class="highligh-desc">all over the world</span> (Canada, Switzerland, Portugal, Israel, etc.). This solution is characterised by the integration of PAMs, feeds, Retail, Live Match Tracker services and authentication systems. <br/><br/> Other projects I have worked on are mobile games and sport betting migration to <span class="highligh-desc">React Native</span>, <span class="highligh-desc">Google Maps</span> integration with system bought by "The fork", internal website for <span class="highligh-desc">Naturgy</span>, and many more.`,
 		link: 'https://yapiko.com/',
 	},
 	{
 		title: 'Junior Developer',
 		company: 'INDRA SISTEMAS S.A.',
 		date: '2017',
-		description:
-			`Practices as a <span class="highligh-desc">control and air surveillance application developer</span> in Java using Eclipse framework in a Maven proyect and Linux operative system in Ubuntu distribution. I also used SVN control system with tortoise client and SQL database.`,
+		description: `Practices as a <span class="highligh-desc">control and air surveillance application developer</span> in Java using Eclipse framework in a Maven proyect and Linux operative system in Ubuntu distribution. I also used SVN control system with tortoise client and SQL database.`,
 		link: 'https://www.indracompany.com/',
 	},
 	{
 		title: 'Junior Developer',
 		company: 'SPIKA TECH S.L.',
 		date: '2016',
-		description:
-			`University practices as a <span class="highligh-desc">travel and transport website developer</span> over the CMS Joomla using php5, bootstrap, jQuery and SQL database.`,
+		description: `University practices as a <span class="highligh-desc">travel and transport website developer</span> over the CMS Joomla using php5, bootstrap, jQuery and SQL database.`,
 		link: 'https://www.spikatech.com/',
 	},
 	{
 		title: 'Administrative',
 		company: 'GiGroup – BANCO SANTANDER',
 		date: '2015',
-		description:
-			`In charge of the data digitalization campaign in two offices in Parla (Madrid). Also working as casher in some offices in Móstoles and Fuenlabrada.`,
+		description: `In charge of the data digitalization campaign in two offices in Parla (Madrid). Also working as casher in some offices in Móstoles and Fuenlabrada.`,
 		link: 'https://www.bancosantander.es/',
 	},
 ]
 ---
 
-<ol class="relative border-s border-gray-200 ml-3">
-	{EXPERIENCE.map((experience) => <ExperienceItem {...experience} />)}
+<ol class="relative mt-16">
+	{
+		EXPERIENCE.map((experience) => (
+			<li class="">
+				<ExperienceItem {...experience} />
+			</li>
+		))
+	}
 </ol>
