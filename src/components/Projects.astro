@@ -1,6 +1,13 @@
 ---
 import NextJS from './icons/NextJS.astro'
 import Tailwind from './icons/Tailwind.astro'
+import React from './icons/React.astro'
+import Apple from './icons/Apple.astro'
+import Android from './icons/Android.astro'
+import Redux from './icons/Redux.astro'
+import Jest from './icons/Jest.astro'
+import Docker from './icons/Docker.astro'
+import Cypress from './icons/Cypress.astro'
 import Link from './icons/Link.astro'
 import LinkButton from './LinkButton.astro'
 
@@ -15,6 +22,46 @@ const TAGS = {
 		class: 'bg-[#003159] text-white',
 		icon: Tailwind,
 	},
+    REACT: {
+        name: 'React',
+        class: 'bg-[#61DAFB] text-black',
+        icon: React,
+    },
+    REACT_NATIVE: {
+        name: 'React Native',
+        class: 'bg-[#61DAFB] text-black',
+        icon: React,
+    },
+    REDUX: {
+        name: 'Redux',
+        class: 'bg-[#764ABC] text-white',
+        icon: Redux,
+    },
+    JEST: {
+        name: 'Jest',
+        class: 'bg-[#99425B] text-white',
+        icon: Jest,
+    },
+    IOS: {
+        name: 'iOS',
+        class: 'bg-[#303030] text-white',
+        icon: Apple,
+    },
+    ANDROID: {
+        name: 'Android',
+        class: 'bg-[#3DDC84] text-white',
+        icon: Android,
+    },
+    DOCKER: {
+        name: 'Docker',
+        class: 'bg-[#2496ED] text-white',
+        icon: Docker,
+    },
+    CYPRESS: {
+        name: 'Cypress',
+        class: 'bg-emerald-200 text-teal-600',
+        icon: Cypress,
+    },
 }
 
 const PROJECTS = [
@@ -24,14 +71,15 @@ const PROJECTS = [
 			'As part of the FE team of Française des jeux (FDJ) and Sporting Solutions, I’ve work for more than 5 years in many React related projects for sports betting. Which include the creation and maintenance of a wide variety of widgets for betting purposes (market display, betslip, competitions, etc), the creation of a CMS for data management called Artemis, the creation of Bet Builder Platform (BBP), maintenance of QA automation project with Cypress, a retail version of the widgets for retail betting, etc. I’ve worked in a big international team with different agile metodologies and roles and for many different clients. ',
 		link: 'https://prolineplus.olg.ca/en-ca',
 		image: '/projects/proline-mockup.webp',
-		tags: [TAGS.NEXT, TAGS.TAILWIND],
+		tags: [TAGS.REACT, TAGS.CYPRESS ,TAGS.JEST, TAGS.DOCKER],
 	},
 	{
-		title: 'Project 2',
-		description: 'This is a description of project 2',
-		link: 'https://example.com',
-		image: '/projects/proline-mockup.webp',
-		tags: [TAGS.NEXT, TAGS.TAILWIND],
+		title: 'Retro Football Management',
+		description: 'Retro Football Management (RFM) is a mobile game with retro style where the user can be the manager of his team and choose between a big list of legendary competitions from the past. This app is published in the app store, google play and amazon app store and it has already reached more than 700.000 downloads in more than 50 countries.',
+		link: 'https://play.google.com/store/apps/details?id=com.rfm&hl=en_GB',
+		image: '/projects/cropped-RFM.webp',
+		tags: [TAGS.REACT_NATIVE, TAGS.REDUX, TAGS.JEST, TAGS.IOS, TAGS.ANDROID],
+        customImgClass: 'py-10',
 	},
 	{
 		title: 'Project 3',
@@ -45,13 +93,13 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
 	{
-		PROJECTS.map(({ image, title, description, tags, link }) => (
+		PROJECTS.map(({ image, title, description, tags, link, customImgClass }) => (
 			<article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
 				<div class="w-full md:w-1/2">
 					<div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
 						<img
 							alt={`screenshot for ${title}`}
-							class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+							class={`object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 ${customImgClass}`}
 							loading="lazy"
 							src={image}
 						/>
@@ -67,7 +115,7 @@ const PROJECTS = [
 							{tags.map((tag) => (
 								<li>
 									<span
-										class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+										class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center text-nowrap`}
 									>
 										<tag.icon class="size-4" />
 										{tag.name}
