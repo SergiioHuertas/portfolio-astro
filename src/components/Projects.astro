@@ -77,9 +77,10 @@ const PROJECTS = [
 		title: 'Retro Football Management',
 		description: 'Retro Football Management (RFM) is a mobile game with retro style where the user can be the manager of his team and choose between a big list of legendary competitions from the past. This app is published in the app store, google play and amazon app store and it has already reached more than 700.000 downloads in more than 50 countries.',
 		link: 'https://play.google.com/store/apps/details?id=com.rfm&hl=en_GB',
+        link2: 'https://apps.apple.com/gb/app/retro-football-management/id1383661436',
 		image: '/projects/cropped-RFM.webp',
 		tags: [TAGS.REACT_NATIVE, TAGS.REDUX, TAGS.JEST, TAGS.IOS, TAGS.ANDROID],
-        customImgClass: 'py-10',
+        customImgClass: 'py-8',
 	},
 	{
 		title: 'Project 3',
@@ -93,7 +94,7 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
 	{
-		PROJECTS.map(({ image, title, description, tags, link, customImgClass }) => (
+		PROJECTS.map(({ image, title, description, tags, link, link2, customImgClass }) => (
 			<article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
 				<div class="w-full md:w-1/2">
 					<div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -130,10 +131,16 @@ const PROJECTS = [
 						<footer class="flex items-end justify-start mt-4 gap-x-4">
 							{link && (
 								<LinkButton href={link}>
-									<Link class="size-4" />
-									Preview
+                                    {link2 ? <Android class="size-4" /> : <Link class="size-4" />}
+                                    {link2 ? 'Android' : 'Preview'}
 								</LinkButton>
 							)}
+                            {link2 && (
+                                    <LinkButton href={link2}>
+                                        <Apple class="size-4" />
+                                        IOS
+                                    </LinkButton>
+                            )}
 						</footer>
 					</div>
 				</div>
