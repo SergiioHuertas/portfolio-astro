@@ -1,6 +1,4 @@
 ---
-import NextJS from './icons/NextJS.astro'
-import Tailwind from './icons/Tailwind.astro'
 import React from './icons/React.astro'
 import Apple from './icons/Apple.astro'
 import Android from './icons/Android.astro'
@@ -13,87 +11,10 @@ import LinkButton from './LinkButton.astro'
 import PHP from './icons/PHP.astro'
 import SQL from './icons/MySQL.astro'
 import Bootstrap from './icons/Bootstrap.astro'
+
 import InfiniteSlider from './InfiniteSlider.astro'
 
 const TAGS = {
-	NEXT: {
-		name: 'Next.js',
-		class: 'bg-black text-white',
-		icon: NextJS,
-	},
-	TAILWIND: {
-		name: 'Tailwind CSS',
-		class: 'bg-[#003159] text-white',
-		icon: Tailwind,
-	},
-	REACT: {
-		name: 'React',
-		class: 'bg-[#61DAFB] text-black',
-		icon: React,
-	},
-	REACT_NATIVE: {
-		name: 'React Native',
-		class: 'bg-[#61DAFB] text-black',
-		icon: React,
-	},
-	REDUX: {
-		name: 'Redux',
-		class: 'bg-[#764ABC] text-white',
-		icon: Redux,
-	},
-	JEST: {
-		name: 'Jest',
-		class: 'bg-[#99425B] text-white',
-		icon: Jest,
-	},
-	IOS: {
-		name: 'iOS',
-		class: 'bg-[#303030] text-white',
-		icon: Apple,
-	},
-	ANDROID: {
-		name: 'Android',
-		class: 'bg-[#3DDC84] text-white',
-		icon: Android,
-	},
-	DOCKER: {
-		name: 'Docker',
-		class: 'bg-[#2496ED] text-white',
-		icon: Docker,
-	},
-	CYPRESS: {
-		name: 'Cypress',
-		class: 'bg-emerald-200 text-teal-600',
-		icon: Cypress,
-	},
-	PHP: {
-		name: 'PHP',
-		class: 'bg-[#8892BF] text-white',
-		icon: PHP,
-	},
-	SQL: {
-		name: 'SQL',
-		class: 'bg-[#4479A1] text-white',
-		icon: SQL,
-	},
-	BOOTSTRAP: {
-		name: 'Bootstrap',
-		class: 'bg-[#7952B3] text-white',
-		icon: Bootstrap,
-	},
-}
-
-const MORETAGS = {
-	NEXT: {
-		name: 'Next.js',
-		class: 'bg-black text-white',
-		icon: NextJS,
-	},
-	TAILWIND: {
-		name: 'Tailwind CSS',
-		class: 'bg-[#003159] text-white',
-		icon: Tailwind,
-	},
 	REACT: {
 		name: 'React',
 		class: 'bg-[#61DAFB] text-black',
@@ -197,85 +118,64 @@ const more = `This is only a brief example of some of the multiple projects I've
 ---
 
 <div class="flex flex-col gap-y-16">
-	<>
-		{
-			PROJECTS.map(
-				({ image, title, description, tags, link, link2, customImgClass }) => (
-					<article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-						<div class="w-full md:w-1/2">
-							<div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-								<img
-									alt={`screenshot for ${title}`}
-									class={`object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 ${customImgClass}`}
-									loading="lazy"
-									src={image}
-								/>
-							</div>
+	{
+		PROJECTS.map(
+			({ image, title, description, tags, link, link2, customImgClass }) => (
+				<article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+					<div class="w-full md:w-1/2">
+						<div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+							<img
+								alt={`screenshot for ${title}`}
+								class={`object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 ${customImgClass}`}
+								loading="lazy"
+								src={image}
+							/>
 						</div>
+					</div>
 
-						<div class="w-full md:w-1/2 md:max-w-lg">
-							<h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-								{title}
-							</h3>
-							<div class="flex flex-wrap mt-2">
-								<ul class="flex flex-row mb-2 gap-x-2">
-									{tags.map((tag) => (
-										<li>
-											<span
-												class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center text-nowrap`}
-											>
-												<tag.icon class="size-4" />
-												{tag.name}
-											</span>
-										</li>
-									))}
-								</ul>
+					<div class="w-full md:w-1/2 md:max-w-lg">
+						<h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+							{title}
+						</h3>
+						<div class="flex flex-wrap mt-2">
+							<ul class="flex flex-row mb-2 gap-x-2">
+								{tags.map((tag) => (
+									<li>
+										<span
+											class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center text-nowrap`}
+										>
+											<tag.icon class="size-4" />
+											{tag.name}
+										</span>
+									</li>
+								))}
+							</ul>
 
-								<div class="mt-2 text-gray-700 dark:text-gray-400">
-									{description}
-								</div>
-								<footer class="flex items-end justify-start mt-4 gap-x-4">
-									{link && (
-										<LinkButton href={link}>
-											{link2 ? (
-												<Android class="size-4" />
-											) : (
-												<Link class="size-4" />
-											)}
-											{link2 ? 'Android' : 'Preview'}
-										</LinkButton>
-									)}
-									{link2 && (
-										<LinkButton href={link2}>
-											<Apple class="size-4" />
-											IOS
-										</LinkButton>
-									)}
-								</footer>
+							<div class="mt-2 text-gray-700 dark:text-gray-400 text-pretty">
+								{description}
 							</div>
+							<footer class="flex items-end justify-start mt-4 gap-x-4">
+								{link && (
+									<LinkButton href={link}>
+										{link2 ? (
+											<Android class="size-4" />
+										) : (
+											<Link class="size-4" />
+										)}
+										{link2 ? 'Android' : 'Preview'}
+									</LinkButton>
+								)}
+								{link2 && (
+									<LinkButton href={link2}>
+										<Apple class="size-4" />
+										IOS
+									</LinkButton>
+								)}
+							</footer>
 						</div>
-					</article>
-				)
+					</div>
+				</article>
 			)
-		}
-		<div
-			class="flex flex-col items-center mt-2 text-gray-700 dark:text-gray-400"
-		>
-			<p set:html={more} class="text-pretty" />
-			<InfiniteSlider>
-				{
-					Object.values(MORETAGS).map((tag) => (
-						<li>
-							<span
-								class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center text-nowrap`}
-							>
-								<tag.icon class="size-4" />
-								{tag.name}
-							</span>
-						</li>
-					))
-				}
-			</InfiniteSlider>
-		</div>
-	</>
+		)
+	}
 </div>
