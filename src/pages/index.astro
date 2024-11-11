@@ -4,6 +4,7 @@ import MailToIcon from '../components/icons/MailTo.astro'
 import SuitCase from '../components/icons/SuitCase.astro'
 import CodeIcon from '../components/icons/Code.astro'
 import UserIcon from '../components/icons/User.astro'
+import File from '../components/icons/File.astro'
 import DefaultBadge from '../components/DefaultBadge.astro'
 import Layout from '../layouts/Layout.astro'
 import SectionContainer from '../components/SectionContainer.astro'
@@ -67,6 +68,15 @@ import { Image } from 'astro:assets'
 				>
 					<MailToIcon class="size-4 md:size-6" />
 					Contact me
+				</a>
+				<a
+					aria-label={'download cv'}
+					href={'/SergioHuertasCV.pdf'}
+					download
+					class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base bg-blue-500 hover:scale-110 hover:bg-blue-600 transition"
+				>
+					<File class="size-4 md:size-6" />
+					Download CV
 				</a>
 			</nav>
 		</SectionContainer>

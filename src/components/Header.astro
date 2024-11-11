@@ -7,11 +7,7 @@ const navItems = [
 		label: 'home',
 		url: '',
 	},
-	{
-		title: 'About',
-		label: 'about',
-		url: '/#about',
-	},
+
 	{
 		title: 'Experience',
 		label: 'experience',
@@ -21,6 +17,11 @@ const navItems = [
 		title: 'Projects',
 		label: 'projects',
 		url: '/#projects',
+	},
+	{
+		title: 'About',
+		label: 'about',
+		url: '/#about',
 	},
 	{
 		title: 'Contact',
@@ -48,6 +49,14 @@ const navItems = [
 			))
 		}
 		<ThemeToggle />
+		<a
+			class="rounded-full px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 m-2"
+			aria-label={'download cv'}
+			href={'/SergioHuertasCV.pdf'}
+			download
+		>
+			Download CV
+		</a>
 	</nav>
 </header>
 
