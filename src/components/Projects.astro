@@ -11,6 +11,10 @@ import LinkButton from './LinkButton.astro'
 import PHP from './icons/PHP.astro'
 import SQL from './icons/MySQL.astro'
 import Bootstrap from './icons/Bootstrap.astro'
+import { getLang, useTranslations } from '../i18n/ui'
+
+const lang = getLang(Astro.currentLocale)
+const t = useTranslations(lang)
 
 const TAGS = {
 	REACT: {
@@ -72,17 +76,21 @@ const TAGS = {
 
 const PROJECTS = [
 	{
-		title: 'Sports betting',
-		description:
-			'As part of the FE team of Française des jeux (FDJ) and Sporting Solutions, I’ve work for more than 5 years in many React related projects for sports betting. Which include the creation and maintenance of a wide variety of widgets for betting purposes (market display, betslip, competitions, etc), the creation of a CMS for data management called Artemis, the creation of Bet Builder Platform (BBP), maintenance of QA automation project with Cypress, a retail version of the widgets for retail betting, etc. I’ve worked in a big international team with different agile metodologies and roles and for many different clients. ',
+		title: { en: 'Sports betting', es: 'Apuestas deportivas' },
+		description: {
+			en: 'As part of the FE team of Française des jeux (FDJ) and Sporting Solutions, I’ve work for more than 5 years in many React related projects for sports betting. Which include the creation and maintenance of a wide variety of widgets for betting purposes (market display, betslip, competitions, etc), the creation of a CMS for data management called Artemis, the creation of Bet Builder Platform (BBP), maintenance of QA automation project with Cypress, a retail version of the widgets for retail betting, etc. I’ve worked in a big international team with different agile metodologies and roles and for many different clients. ',
+			es: 'Como parte del equipo FE de Française des jeux (FDJ) y Sporting Solutions, he trabajado más de 5 años en muchos proyectos de apuestas deportivas con React. Entre ellos, la creación y mantenimiento de una gran variedad de widgets de apuestas (visualización de mercados, boleto de apuestas, competiciones, etc.), la creación de un CMS para la gestión de datos llamado Artemis, la creación de Bet Builder Platform (BBP), el mantenimiento del proyecto de automatización de QA con Cypress, una versión retail de los widgets para apuestas en tienda, etc. He trabajado en un gran equipo internacional con distintas metodologías ágiles y roles, y para muchos clientes diferentes.',
+		},
 		link: 'https://prolineplus.olg.ca/en-ca',
 		image: '/projects/proline-mockup.webp',
 		tags: [TAGS.REACT, TAGS.CYPRESS, TAGS.JEST, TAGS.DOCKER],
 	},
 	{
-		title: 'Retro Football Management',
-		description:
-			'Retro Football Management (RFM) is a mobile game with retro style where the user can be the manager of his team and choose between a big list of legendary competitions from the past. This app is published in the app store, google play and amazon app store and it has already reached more than 700.000 downloads in more than 50 countries.',
+		title: { en: 'Retro Football Management', es: 'Retro Football Management' },
+		description: {
+			en: 'Retro Football Management (RFM) is a mobile game with retro style where the user can be the manager of his team and choose between a big list of legendary competitions from the past. This app is published in the app store, google play and amazon app store and it has already reached more than 700.000 downloads in more than 50 countries.',
+			es: 'Retro Football Management (RFM) es un juego móvil de estilo retro en el que el usuario puede ser el mánager de su equipo y elegir entre una gran lista de competiciones legendarias del pasado. La app está publicada en App Store, Google Play y Amazon Appstore y ya ha superado las 700.000 descargas en más de 50 países.',
+		},
 		link: 'https://play.google.com/store/apps/details?id=com.rfm&hl=en_GB',
 		link2:
 			'https://apps.apple.com/gb/app/retro-football-management/id1383661436',
@@ -91,9 +99,11 @@ const PROJECTS = [
 		customImgClass: 'py-8',
 	},
 	{
-		title: 'Turtrip',
-		description:
-			'Travel and transport website where there are different type of users (travellers, travel agencies and administrators). Travellers can customize a travel from the beginning to the end, adding hotels, tickets for museums or any kind of shows, flights, etc. I also designed and developed the chat system for the users to contact between travellers and travel agencies or with the administrators.',
+		title: { en: 'Turtrip', es: 'Turtrip' },
+		description: {
+			en: 'Travel and transport website where there are different type of users (travellers, travel agencies and administrators). Travellers can customize a travel from the beginning to the end, adding hotels, tickets for museums or any kind of shows, flights, etc. I also designed and developed the chat system for the users to contact between travellers and travel agencies or with the administrators.',
+			es: 'Web de viajes y transporte con distintos tipos de usuarios (viajeros, agencias de viajes y administradores). Los viajeros pueden personalizar un viaje de principio a fin, añadiendo hoteles, entradas para museos o cualquier tipo de espectáculo, vuelos, etc. También diseñé y desarrollé el sistema de chat para que los viajeros pudieran contactar con las agencias de viajes o con los administradores.',
+		},
 		link: 'https://www.turtrip.travel/es/',
 		image: '/projects/turtrip-mockup.webp',
 		tags: [TAGS.PHP, TAGS.SQL, TAGS.BOOTSTRAP],
@@ -109,7 +119,7 @@ const PROJECTS = [
 					<div class="w-full md:w-1/2">
 						<div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
 							<img
-								alt={`screenshot for ${title}`}
+								alt={`${t('projects.screenshot')} ${title[lang]}`}
 								class={`object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 ${customImgClass}`}
 								loading="lazy"
 								src={image}
@@ -119,7 +129,7 @@ const PROJECTS = [
 
 					<div class="w-full md:w-1/2 md:max-w-lg">
 						<h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-							{title}
+							{title[lang]}
 						</h3>
 						<div class="flex flex-wrap mt-2">
 							<ul class="flex flex-row mb-2 gap-x-2">
@@ -136,7 +146,7 @@ const PROJECTS = [
 							</ul>
 
 							<div class="mt-2 text-gray-700 dark:text-gray-400 text-pretty">
-								{description}
+								{description[lang]}
 							</div>
 							<footer class="flex items-end justify-start mt-4 gap-x-4">
 								{link && (
@@ -146,7 +156,7 @@ const PROJECTS = [
 										) : (
 											<Link class="size-4" />
 										)}
-										{link2 ? 'Android' : 'Preview'}
+										{link2 ? 'Android' : t('projects.preview')}
 									</LinkButton>
 								)}
 								{link2 && (

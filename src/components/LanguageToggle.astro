@@ -1,0 +1,67 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import FlagES from './icons/FlagES.astro'
+import FlagGB from './icons/FlagGB.astro'
+import { getLang, useTranslations } from '../i18n/ui'
+
+const lang = getLang(Astro.currentLocale)
+const t = useTranslations(lang)
+
+const OPTIONS = [
+	{ lang: 'es', label: 'ES', name: 'Español', flag: FlagES },
+	{ lang: 'en', label: 'EN', name: 'English', flag: FlagGB },
+] as const
+---
+
+<div
+	id="lang-toggle"
+	role="group"
+	aria-label={t('lang.label')}
+	data-active={lang}
+	class="fixed z-20 top-14 right-3 md:top-4 md:right-6 grid grid-cols-2 items-center p-1 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-gray-800/80 backdrop-blur shadow-lg text-xs font-semibold text-gray-600 dark:text-gray-300"
+>
+	<span
+		aria-hidden="true"
+		class="lang-thumb absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-yellow-400 dark:bg-white/15 shadow transition-transform duration-300 ease-out"
+	></span>
+	{
+		OPTIONS.map((option) => (
+			<a
+				href={getRelativeLocaleUrl(option.lang)}
+				hreflang={option.lang}
+				lang={option.lang}
+				title={option.name}
+				aria-current={option.lang === lang ? 'page' : undefined}
+				data-lang={option.lang}
+				data-astro-reload
+				class="relative z-10 flex items-center justify-center gap-1.5 px-1.5 py-1 sm:px-3 rounded-full transition-colors hover:text-black dark:hover:text-white aria-[current=page]:text-black dark:aria-[current=page]:text-white"
+			>
+				<option.flag class="size-5 shrink-0 rounded-full ring-1 ring-black/10 dark:ring-white/20" />
+				<span class="hidden sm:inline">{option.label}</span>
+				<span class="sr-only sm:hidden">{option.name}</span>
+			</a>
+		))
+	}
+</div>
+
+<style>
+	#lang-toggle[data-active='en'] .lang-thumb {
+		transform: translateX(100%);
+	}
+</style>
+
+<script>
+	// Slide the thumb before navigating so the switch feels like a toggle
+	document.addEventListener('click', (e) => {
+		const link = (e.target as Element).closest<HTMLAnchorElement>(
+			'#lang-toggle a[data-lang]'
+		)
+		const toggle = link?.closest<HTMLElement>('#lang-toggle')
+		if (!link || !toggle || link.dataset.lang === toggle.dataset.active) return
+
+		e.preventDefault()
+		toggle.dataset.active = link.dataset.lang
+		const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 250
+		setTimeout(() => window.location.assign(link.href), delay)
+	})
+</script>

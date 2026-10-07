@@ -1,34 +1,66 @@
 ---
 import ExperienceItem from './ExperienceItem.astro'
+import { getLang } from '../i18n/ui'
+
+
+const lang = getLang(Astro.currentLocale)
 
 const EXPERIENCE = [
 	{
-		title: 'Front End Developer',
 		company: ' YAPIKO SOFTWARE HOUSE S.L.',
-		date: '2018 - Nowdays',
-		description: `Working in multiple projects for many international clients, mainly <span class="highligh-desc">sports betting related</span>. I have contributed to develop and maintain the <span class="highligh-desc">React</span> FE solution of a sport betting platform used by clients <span class="highligh-desc">all over the world</span> (Canada, Switzerland, Portugal, Israel, etc.). This solution is characterised by the integration of PAMs, feeds, Retail, Live Match Tracker services and authentication systems. <br/><br/> Other projects I have worked on are mobile games and sport betting migration to <span class="highligh-desc">React Native</span>, <span class="highligh-desc">Google Maps</span> integration with system bought by "The fork", internal website for <span class="highligh-desc">Naturgy</span>, and many more.`,
 		link: 'https://yapiko.com/',
+		en: {
+			title: 'Front End Developer',
+			date: '2018 - Nowdays',
+			description: `Working in multiple projects for many international clients, mainly <span class="highligh-desc">sports betting related</span>. I have contributed to develop and maintain the <span class="highligh-desc">React</span> FE solution of a sport betting platform used by clients <span class="highligh-desc">all over the world</span> (Canada, Switzerland, Portugal, Israel, etc.). This solution is characterised by the integration of PAMs, feeds, Retail, Live Match Tracker services and authentication systems. <br/><br/> Other projects I have worked on are mobile games and sport betting migration to <span class="highligh-desc">React Native</span>, <span class="highligh-desc">Google Maps</span> integration with system bought by "The fork", internal website for <span class="highligh-desc">Naturgy</span>, and many more.`,
+		},
+		es: {
+			title: 'Desarrollador Front End',
+			date: '2018 - Actualidad',
+			description: `Trabajando en múltiples proyectos para clientes internacionales, principalmente <span class="highligh-desc">relacionados con apuestas deportivas</span>. He contribuido a desarrollar y mantener la solución FE en <span class="highligh-desc">React</span> de una plataforma de apuestas deportivas usada por clientes de <span class="highligh-desc">todo el mundo</span> (Canadá, Suiza, Portugal, Israel, etc.). Esta solución se caracteriza por la integración de PAMs, feeds, Retail, servicios de Live Match Tracker y sistemas de autenticación. <br/><br/> Otros proyectos en los que he trabajado son juegos móviles y la migración de apuestas deportivas a <span class="highligh-desc">React Native</span>, la integración de <span class="highligh-desc">Google Maps</span> con un sistema adquirido por "The fork", una web interna para <span class="highligh-desc">Naturgy</span>, y muchos más.`,
+		},
 	},
 	{
-		title: 'Junior Developer',
 		company: 'INDRA SISTEMAS S.A.',
-		date: '2017',
-		description: `Practices as a <span class="highligh-desc">control and air surveillance application developer</span> in Java using Eclipse framework in a Maven proyect and Linux operative system in Ubuntu distribution. I also used SVN control system with tortoise client and SQL database.`,
 		link: 'https://www.indracompany.com/',
+		en: {
+			title: 'Junior Developer',
+			date: '2017',
+			description: `Practices as a <span class="highligh-desc">control and air surveillance application developer</span> in Java using Eclipse framework in a Maven proyect and Linux operative system in Ubuntu distribution. I also used SVN control system with tortoise client and SQL database.`,
+		},
+		es: {
+			title: 'Desarrollador Junior',
+			date: '2017',
+			description: `Prácticas como <span class="highligh-desc">desarrollador de aplicaciones de control y vigilancia aérea</span> en Java usando Eclipse en un proyecto Maven y sistema operativo Linux con distribución Ubuntu. También usé el sistema de control de versiones SVN con el cliente Tortoise y base de datos SQL.`,
+		},
 	},
 	{
-		title: 'Junior Developer',
 		company: 'SPIKA TECH S.L.',
-		date: '2016',
-		description: `University practices as a <span class="highligh-desc">travel and transport website developer</span> over the CMS Joomla using php5, bootstrap, jQuery and SQL database.`,
 		link: 'https://www.spikatech.com/',
+		en: {
+			title: 'Junior Developer',
+			date: '2016',
+			description: `University practices as a <span class="highligh-desc">travel and transport website developer</span> over the CMS Joomla using php5, bootstrap, jQuery and SQL database.`,
+		},
+		es: {
+			title: 'Desarrollador Junior',
+			date: '2016',
+			description: `Prácticas universitarias como <span class="highligh-desc">desarrollador de una web de viajes y transporte</span> sobre el CMS Joomla usando php5, bootstrap, jQuery y base de datos SQL.`,
+		},
 	},
 	{
-		title: 'Administrative',
 		company: 'GiGroup – BANCO SANTANDER',
-		date: '2015',
-		description: `In charge of the data digitalization campaign in two offices in Parla (Madrid). Also working as casher in some offices in Móstoles and Fuenlabrada.`,
 		link: 'https://www.bancosantander.es/',
+		en: {
+			title: 'Administrative',
+			date: '2015',
+			description: `In charge of the data digitalization campaign in two offices in Parla (Madrid). Also working as casher in some offices in Móstoles and Fuenlabrada.`,
+		},
+		es: {
+			title: 'Administrativo',
+			date: '2015',
+			description: `Encargado de la campaña de digitalización de datos en dos oficinas de Parla (Madrid). También trabajé como cajero en varias oficinas de Móstoles y Fuenlabrada.`,
+		},
 	},
 ]
 ---
@@ -37,7 +69,11 @@ const EXPERIENCE = [
 	{
 		EXPERIENCE.map((experience) => (
 			<li class="">
-				<ExperienceItem {...experience} />
+				<ExperienceItem
+					company={experience.company}
+					link={experience.link}
+					{...experience[lang]}
+				/>
 			</li>
 		))
 	}

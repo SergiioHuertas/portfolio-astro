@@ -1,25 +1,26 @@
 ---
-import LinkedInIcon from '../components/icons/LinkedIn.astro'
-import MailToIcon from '../components/icons/MailTo.astro'
-import SuitCase from '../components/icons/SuitCase.astro'
-import CodeIcon from '../components/icons/Code.astro'
-import UserIcon from '../components/icons/User.astro'
-import File from '../components/icons/File.astro'
-import DefaultBadge from '../components/DefaultBadge.astro'
+import LinkedInIcon from './icons/LinkedIn.astro'
+import MailToIcon from './icons/MailTo.astro'
+import SuitCase from './icons/SuitCase.astro'
+import CodeIcon from './icons/Code.astro'
+import UserIcon from './icons/User.astro'
+import File from './icons/File.astro'
+import DefaultBadge from './DefaultBadge.astro'
 import Layout from '../layouts/Layout.astro'
-import SectionContainer from '../components/SectionContainer.astro'
-import Experience from '../components/Experience.astro'
-import Projects from '../components/Projects.astro'
-import AboutMe from '../components/AboutMe.astro'
+import SectionContainer from './SectionContainer.astro'
+import Experience from './Experience.astro'
+import Projects from './Projects.astro'
+import AboutMe from './AboutMe.astro'
 import { Image } from 'astro:assets'
+import { getLang, useTranslations } from '../i18n/ui'
+
+const lang = getLang(Astro.currentLocale)
+const t = useTranslations(lang)
 ---
 
-<Layout
-	title="Sergio Huertas - Desarrollador y Programador Web"
-	description="Contrata a Sergio Huertas, un desarrollador web con más de 6 años de experiencia en el desarrollo de aplicaciones web."
->
+<Layout title={t('meta.title')} description={t('meta.description')}>
 	<main class="px-4">
-		<SectionContainer class="py-16 md:py-36">
+		<SectionContainer class="pt-24 pb-16 md:py-36">
 			<div class="flex gap-4 mb-4">
 				<Image
 					src="/sergio-logo.webp"
@@ -35,20 +36,18 @@ import { Image } from 'astro:assets'
 					rel="noopener noreferer"
 					class="flex items-center transition md:justify-center md:hover:scale-105"
 				>
-					<DefaultBadge>Ready to work</DefaultBadge>
+					<DefaultBadge>{t('hero.badge')}</DefaultBadge>
 				</a>
 			</div>
 			<h1
 				class="text-3xl md:text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
 			>
-				Hey, I'm Sergio Huertas
+				{t('hero.title')}
 			</h1>
 			<h2 class="text-xl lg:text-2xl text-wrap max-w-[800px]">
-				<span>+6 years experience. </span><span class="text-amber-800 dark:text-yellow-200/90"
-					>Front End Developer.</span
-				> From Madrid, Spain 🇪🇸. <span class="opacity-75"
-					>My speciality is to develop web apps.</span
-				>
+				<span>{t('hero.experience')}</span><span class="text-amber-800 dark:text-yellow-200/90"
+					>{t('hero.role')}</span
+				>{t('hero.from')}<span class="opacity-75">{t('hero.speciality')}</span>
 			</h2>
 			<nav class="flex flex-wrap gap-4 mt-8">
 				<a
@@ -67,7 +66,7 @@ import { Image } from 'astro:assets'
 					class="rounded-full border border-black dark:border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base bg-yellow-400 dark:bg-white/5 hover:scale-110 hover:bg-yellow-500 dark:hover:bg-white/10 transition"
 				>
 					<MailToIcon class="size-4 md:size-6" />
-					Contact me
+					{t('hero.contact')}
 				</a>
 				<a
 					aria-label={'download cv'}
@@ -76,14 +75,14 @@ import { Image } from 'astro:assets'
 					class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base bg-blue-500 hover:scale-110 hover:bg-blue-600 text-white transition"
 				>
 					<File class="size-4 md:size-6" />
-					Download CV
+					{t('nav.downloadCv')}
 				</a>
 			</nav>
 		</SectionContainer>
 		<SectionContainer id="experience">
 			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
 				<SuitCase class="size-8" />
-				Experience
+				{t('section.experience')}
 			</h2>
 			<Experience />
 		</SectionContainer>
@@ -91,7 +90,7 @@ import { Image } from 'astro:assets'
 		<SectionContainer id="projects">
 			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
 				<CodeIcon class="size-8" />
-				Projects
+				{t('section.projects')}
 			</h2>
 			<Projects />
 		</SectionContainer>
@@ -99,7 +98,7 @@ import { Image } from 'astro:assets'
 		<SectionContainer id="about">
 			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
 				<UserIcon class="size-8" />
-				About me
+				{t('section.about')}
 			</h2>
 			<AboutMe />
 		</SectionContainer>

@@ -1,5 +1,8 @@
 ---
 import InfiniteSlider from './InfiniteSlider.astro'
+import { getLang } from '../i18n/ui'
+
+const lang = getLang(Astro.currentLocale)
 const personalImageAlt = 'Sergio Huertas'
 ---
 
@@ -9,31 +12,65 @@ const personalImageAlt = 'Sergio Huertas'
 	<div
 		class="[&>p]:mb-4 [&>p>strong]:text-amber-800 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
 	>
-		<p>
-			My name is Sergio Huertas but everyone just calls me Huertas. I am
-			currently <strong
-				>developing sports betting projects for multiple international clients</strong
-			>.
-		</p>
+		{
+			lang === 'es' ? (
+				<>
+				<p>
+					Me llamo Sergio Huertas, pero todo el mundo me llama Huertas. Actualmente
+					estoy <strong
+						>desarrollando proyectos de apuestas deportivas para múltiples clientes internacionales</strong
+					>.
+				</p>
 
-		<p>
-			After studying <strong
-				>computer engineering at the Universidad Rey Juan Carlos in Madrid
-			</strong>I started to specialise as a FrontEnd developer.
-		</p>
+				<p>
+					Después de estudiar <strong
+						>ingeniería informática en la Universidad Rey Juan Carlos de Madrid
+					</strong>me especialicé como desarrollador FrontEnd.
+				</p>
 
-		<p>
-			To date, I have collaborated in <strong
-				>more than 10 different projects, most of them with international teams
-				and clients, and applying agile methodologies.</strong
-			> My goal is to create quality solutions, adapted to the needs of each project.
-			All opinions and feedback are positive.
-		</p>
+				<p>
+					Hasta la fecha he colaborado en <strong
+						>más de 10 proyectos diferentes, la mayoría con equipos y clientes
+						internacionales, aplicando metodologías ágiles.</strong
+					> Mi objetivo es crear soluciones de calidad, adaptadas a las necesidades de cada proyecto.
+					Todas las opiniones y valoraciones son positivas.
+				</p>
 
-		<p>
-			In addition to the technologies mentioned in the above projects, some of
-			the other technologies I work with are:
-		</p>
+				<p>
+					Además de las tecnologías mencionadas en los proyectos anteriores, otras
+					tecnologías con las que trabajo son:
+				</p>
+				</>
+			) : (
+				<>
+				<p>
+					My name is Sergio Huertas but everyone just calls me Huertas. I am
+					currently <strong
+						>developing sports betting projects for multiple international clients</strong
+					>.
+				</p>
+
+				<p>
+					After studying <strong
+						>computer engineering at the Universidad Rey Juan Carlos in Madrid
+					</strong>I started to specialise as a FrontEnd developer.
+				</p>
+
+				<p>
+					To date, I have collaborated in <strong
+						>more than 10 different projects, most of them with international teams
+						and clients, and applying agile methodologies.</strong
+					> My goal is to create quality solutions, adapted to the needs of each project.
+					All opinions and feedback are positive.
+				</p>
+
+				<p>
+					In addition to the technologies mentioned in the above projects, some of
+					the other technologies I work with are:
+				</p>
+				</>
+			)
+		}
 	</div>
 
 	<img
