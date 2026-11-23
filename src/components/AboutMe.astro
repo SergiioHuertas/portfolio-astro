@@ -3,7 +3,6 @@ import InfiniteSlider from './InfiniteSlider.astro'
 import { getLang } from '../i18n/ui'
 
 const lang = getLang(Astro.currentLocale)
-const personalImageAlt = 'Sergio Huertas'
 ---
 
 <article
@@ -15,59 +14,27 @@ const personalImageAlt = 'Sergio Huertas'
 		{
 			lang === 'es' ? (
 				<>
-				<p>
-					Me llamo Sergio Huertas, pero todo el mundo me llama Huertas. Actualmente
-					estoy <strong
-						>desarrollando proyectos de apuestas deportivas para múltiples clientes internacionales</strong
-					>.
-				</p>
-
-				<p>
-					Después de estudiar <strong
-						>ingeniería informática en la Universidad Rey Juan Carlos de Madrid
-					</strong>me especialicé como desarrollador FrontEnd.
-				</p>
-
-				<p>
-					Hasta la fecha he colaborado en <strong
-						>más de 10 proyectos diferentes, la mayoría con equipos y clientes
-						internacionales, aplicando metodologías ágiles.</strong
-					> Mi objetivo es crear soluciones de calidad, adaptadas a las necesidades de cada proyecto.
-					Todas las opiniones y valoraciones son positivas.
-				</p>
-
-				<p>
-					Además de las tecnologías mencionadas en los proyectos anteriores, otras
-					tecnologías con las que trabajo son:
-				</p>
+					<p>
+						Soy Sergio Huertas. Estudié <strong>Ingeniería Informática en la Universidad Rey Juan Carlos</strong> y me especialicé en el desarrollo frontend y móvil.
+					</p>
+					<p>
+						Hasta la fecha he colaborado en <strong>más de 10 proyectos, la mayoría con equipos y clientes internacionales en entornos ágiles</strong>. Mi objetivo es crear interfaces claras y soluciones fiables, adaptadas a las necesidades de cada proyecto.
+					</p>
+					<p>
+						Trabajo principalmente con <strong>React, React Native y TypeScript</strong>, además de integrar APIs y realizar pruebas de frontend. Estas son algunas de las tecnologías que utilizo:
+					</p>
 				</>
 			) : (
 				<>
-				<p>
-					My name is Sergio Huertas but everyone just calls me Huertas. I am
-					currently <strong
-						>developing sports betting projects for multiple international clients</strong
-					>.
-				</p>
-
-				<p>
-					After studying <strong
-						>computer engineering at the Universidad Rey Juan Carlos in Madrid
-					</strong>I started to specialise as a FrontEnd developer.
-				</p>
-
-				<p>
-					To date, I have collaborated in <strong
-						>more than 10 different projects, most of them with international teams
-						and clients, and applying agile methodologies.</strong
-					> My goal is to create quality solutions, adapted to the needs of each project.
-					All opinions and feedback are positive.
-				</p>
-
-				<p>
-					In addition to the technologies mentioned in the above projects, some of
-					the other technologies I work with are:
-				</p>
+					<p>
+						I'm Sergio Huertas. I studied <strong>Computer Engineering at Universidad Rey Juan Carlos</strong> and specialized in frontend and mobile development.
+					</p>
+					<p>
+						So far, I've contributed to <strong>more than 10 projects, mostly with international teams and clients in agile environments</strong>. My goal is to build clear interfaces and reliable solutions tailored to each project's needs.
+					</p>
+					<p>
+						I work mainly with <strong>React, React Native and TypeScript</strong>, alongside API integration and frontend testing. Here are some of the technologies I use:
+					</p>
 				</>
 			)
 		}
@@ -77,13 +44,11 @@ const personalImageAlt = 'Sergio Huertas'
 		width="200"
 		height="200"
 		src="/sergio-logo.webp"
-		alt={personalImageAlt}
+		alt="Sergio Huertas"
 		class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
 		style="object-position: 50% 50%"
 	/>
 </article>
-<section
-	class="flex flex-col items-center mt-2 text-gray-700 dark:text-gray-400"
->
+<section class="flex flex-col items-center mt-2 text-gray-700 dark:text-gray-400">
 	<InfiniteSlider />
 </section>

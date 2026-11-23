@@ -9,9 +9,9 @@ export type Lang = keyof typeof languages
 
 export const ui = {
 	en: {
-		'meta.title': 'Sergio Huertas - Web Developer',
+		'meta.title': 'Sergio Huertas - Frontend Developer | React & React Native',
 		'meta.description':
-			'Hire Sergio Huertas, a web developer with more than 6 years of experience building web applications.',
+			'Sergio Huertas develops web and mobile applications with React, React Native and TypeScript, with experience in sports betting, gaming and robotics education.',
 		'nav.home': 'Home',
 		'nav.experience': 'Experience',
 		'nav.projects': 'Projects',
@@ -25,10 +25,9 @@ export const ui = {
 		'theme.system': 'System',
 		'hero.badge': 'Ready to work',
 		'hero.title': "Hey, I'm Sergio Huertas",
-		'hero.experience': '+6 years experience. ',
-		'hero.role': 'Front End Developer.',
-		'hero.from': ' From Madrid, Spain 🇪🇸. ',
-		'hero.speciality': 'My speciality is to develop web apps.',
+		'hero.role': 'Frontend Developer.',
+		'hero.from': ' Based in Madrid, Spain 🇪🇸. ',
+		'hero.speciality': 'I build web and mobile apps with React, React Native and TypeScript.',
 		'hero.contact': 'Contact me',
 		'section.experience': 'Experience',
 		'section.projects': 'Projects',
@@ -39,9 +38,9 @@ export const ui = {
 		'footer.rights': 'All rights reserved.',
 	},
 	es: {
-		'meta.title': 'Sergio Huertas - Desarrollador y Programador Web',
+		'meta.title': 'Sergio Huertas - Desarrollador frontend | React y React Native',
 		'meta.description':
-			'Contrata a Sergio Huertas, un desarrollador web con más de 6 años de experiencia en el desarrollo de aplicaciones web.',
+			'Sergio Huertas desarrolla aplicaciones web y móviles con React, React Native y TypeScript, con experiencia en apuestas deportivas, videojuegos y educación robótica.',
 		'nav.home': 'Inicio',
 		'nav.experience': 'Experiencia',
 		'nav.projects': 'Proyectos',
@@ -55,10 +54,9 @@ export const ui = {
 		'theme.system': 'Sistema',
 		'hero.badge': 'Disponible para trabajar',
 		'hero.title': 'Hola, soy Sergio Huertas',
-		'hero.experience': '+6 años de experiencia. ',
-		'hero.role': 'Desarrollador Front End.',
-		'hero.from': ' De Madrid, España 🇪🇸. ',
-		'hero.speciality': 'Mi especialidad es desarrollar aplicaciones web.',
+		'hero.role': 'Desarrollador frontend.',
+		'hero.from': ' Desde Madrid, España 🇪🇸. ',
+		'hero.speciality': 'Desarrollo aplicaciones web y móviles con React, React Native y TypeScript.',
 		'hero.contact': 'Contáctame',
 		'section.experience': 'Experiencia',
 		'section.projects': 'Proyectos',
@@ -74,6 +72,10 @@ export function getLang(currentLocale: string | undefined): Lang {
 	return currentLocale && currentLocale in languages
 		? (currentLocale as Lang)
 		: defaultLang
+}
+
+export function getCvUrl(lang: Lang) {
+	return lang === 'es' ? '/SergioHuertasCV-es.pdf' : '/SergioHuertasCV.pdf'
 }
 
 export function useTranslations(lang: Lang) {

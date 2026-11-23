@@ -2,7 +2,7 @@
 import ThemeToggle from './ThemeToggle.astro'
 import LanguageToggle from './LanguageToggle.astro'
 import { getRelativeLocaleUrl } from 'astro:i18n'
-import { getLang, useTranslations } from '../i18n/ui'
+import { getCvUrl, getLang, useTranslations } from '../i18n/ui'
 
 const lang = getLang(Astro.currentLocale)
 const t = useTranslations(lang)
@@ -61,8 +61,8 @@ const navItems = [
 		<ThemeToggle />
 		<a
 			class="hidden lg:flex xl:flex 2xl:flex rounded-full px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 m-2"
-			aria-label={'download cv'}
-			href={'/SergioHuertasCV.pdf'}
+			aria-label={t('nav.downloadCv')}
+			href={getCvUrl(lang)}
 			download
 		>
 			{t('nav.downloadCv')}

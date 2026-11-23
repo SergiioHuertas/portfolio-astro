@@ -12,7 +12,7 @@ import Experience from './Experience.astro'
 import Projects from './Projects.astro'
 import AboutMe from './AboutMe.astro'
 import { Image } from 'astro:assets'
-import { getLang, useTranslations } from '../i18n/ui'
+import { getCvUrl, getLang, useTranslations } from '../i18n/ui'
 
 const lang = getLang(Astro.currentLocale)
 const t = useTranslations(lang)
@@ -23,9 +23,9 @@ const t = useTranslations(lang)
 		<SectionContainer class="pt-24 pb-16 md:py-36">
 			<div class="flex gap-4 mb-4">
 				<Image
-					src="/sergio-logo.webp"
-					width={16}
-					height={16}
+					src="/sergio-avatar.webp"
+					width={64}
+					height={64}
 					loading="eager"
 					class="rounded-full shadow-lg size-16"
 					alt="Sergio Huertas"
@@ -45,7 +45,7 @@ const t = useTranslations(lang)
 				{t('hero.title')}
 			</h1>
 			<h2 class="text-xl lg:text-2xl text-wrap max-w-[800px]">
-				<span>{t('hero.experience')}</span><span class="text-amber-800 dark:text-yellow-200/90"
+				<span class="text-amber-800 dark:text-yellow-200/90"
 					>{t('hero.role')}</span
 				>{t('hero.from')}<span class="opacity-75">{t('hero.speciality')}</span>
 			</h2>
@@ -69,8 +69,8 @@ const t = useTranslations(lang)
 					{t('hero.contact')}
 				</a>
 				<a
-					aria-label={'download cv'}
-					href={'/SergioHuertasCV.pdf'}
+					aria-label={t('nav.downloadCv')}
+					href={getCvUrl(lang)}
 					download
 					class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base bg-blue-500 hover:scale-110 hover:bg-blue-600 text-white transition"
 				>

@@ -8,9 +8,6 @@ import Docker from './icons/Docker.astro'
 import Cypress from './icons/Cypress.astro'
 import Link from './icons/Link.astro'
 import LinkButton from './LinkButton.astro'
-import PHP from './icons/PHP.astro'
-import SQL from './icons/MySQL.astro'
-import Bootstrap from './icons/Bootstrap.astro'
 import { getLang, useTranslations } from '../i18n/ui'
 
 const lang = getLang(Astro.currentLocale)
@@ -57,29 +54,14 @@ const TAGS = {
 		class: 'bg-emerald-200 text-teal-600',
 		icon: Cypress,
 	},
-	PHP: {
-		name: 'PHP',
-		class: 'bg-[#8892BF] text-white',
-		icon: PHP,
-	},
-	SQL: {
-		name: 'SQL',
-		class: 'bg-[#4479A1] text-white',
-		icon: SQL,
-	},
-	BOOTSTRAP: {
-		name: 'Bootstrap',
-		class: 'bg-[#7952B3] text-white',
-		icon: Bootstrap,
-	},
 }
 
 const PROJECTS = [
 	{
 		title: { en: 'Sports betting', es: 'Apuestas deportivas' },
 		description: {
-			en: 'As part of the FE team of Française des jeux (FDJ) and Sporting Solutions, I’ve work for more than 5 years in many React related projects for sports betting. Which include the creation and maintenance of a wide variety of widgets for betting purposes (market display, betslip, competitions, etc), the creation of a CMS for data management called Artemis, the creation of Bet Builder Platform (BBP), maintenance of QA automation project with Cypress, a retail version of the widgets for retail betting, etc. I’ve worked in a big international team with different agile metodologies and roles and for many different clients. ',
-			es: 'Como parte del equipo FE de Française des jeux (FDJ) y Sporting Solutions, he trabajado más de 5 años en muchos proyectos de apuestas deportivas con React. Entre ellos, la creación y mantenimiento de una gran variedad de widgets de apuestas (visualización de mercados, boleto de apuestas, competiciones, etc.), la creación de un CMS para la gestión de datos llamado Artemis, la creación de Bet Builder Platform (BBP), el mantenimiento del proyecto de automatización de QA con Cypress, una versión retail de los widgets para apuestas en tienda, etc. He trabajado en un gran equipo internacional con distintas metodologías ágiles y roles, y para muchos clientes diferentes.',
+			en: 'At FDJ / Sporting Solutions, I developed and maintained React web widgets and a sports betting platform for international clients. This included market displays, betslips, competitions and retail interfaces. I also contributed to frontend testing with Cypress in a distributed agile team.',
+			es: 'En FDJ / Sporting Solutions desarrollé y mantuve widgets web con React y una plataforma de apuestas deportivas para clientes internacionales. Trabajé en mercados, boletos de apuestas, competiciones e interfaces retail, además de colaborar en pruebas de frontend con Cypress dentro de un equipo ágil distribuido.',
 		},
 		link: 'https://prolineplus.olg.ca/en-ca',
 		image: '/projects/proline-mockup.webp',
@@ -88,8 +70,8 @@ const PROJECTS = [
 	{
 		title: { en: 'Retro Football Management', es: 'Retro Football Management' },
 		description: {
-			en: 'Retro Football Management (RFM) is a mobile game with retro style where the user can be the manager of his team and choose between a big list of legendary competitions from the past. This app is published in the app store, google play and amazon app store and it has already reached more than 700.000 downloads in more than 50 countries.',
-			es: 'Retro Football Management (RFM) es un juego móvil de estilo retro en el que el usuario puede ser el mánager de su equipo y elegir entre una gran lista de competiciones legendarias del pasado. La app está publicada en App Store, Google Play y Amazon Appstore y ya ha superado las 700.000 descargas en más de 50 países.',
+			en: 'While at Yapiko, I developed this football management game for Coast Gaming on iOS and Android with React Native, Redux and Realm. The app has passed 700,000 downloads.',
+			es: 'Durante mi etapa en Yapiko desarrollé este juego de gestión de fútbol para Coast Gaming en iOS y Android con React Native, Redux y Realm. La app ha superado las 700.000 descargas.',
 		},
 		link: 'https://play.google.com/store/apps/details?id=com.rfm&hl=en_GB',
 		link2:
@@ -99,14 +81,15 @@ const PROJECTS = [
 		customImgClass: 'py-8',
 	},
 	{
-		title: { en: 'Turtrip', es: 'Turtrip' },
+		title: { en: 'ROBOTIX Link C360', es: 'ROBOTIX Link C360' },
 		description: {
-			en: 'Travel and transport website where there are different type of users (travellers, travel agencies and administrators). Travellers can customize a travel from the beginning to the end, adding hotels, tickets for museums or any kind of shows, flights, etc. I also designed and developed the chat system for the users to contact between travellers and travel agencies or with the administrators.',
-			es: 'Web de viajes y transporte con distintos tipos de usuarios (viajeros, agencias de viajes y administradores). Los viajeros pueden personalizar un viaje de principio a fin, añadiendo hoteles, entradas para museos o cualquier tipo de espectáculo, vuelos, etc. También diseñé y desarrollé el sistema de chat para que los viajeros pudieran contactar con las agencias de viajes o con los administradores.',
+			en: 'At Yapiko, I worked on this robotics education platform for ROBOTIX. I developed a block programming editor with Blockly and Monaco and an iPad app that connects to robots via Bluetooth, with voice and vision features.',
+			es: 'En Yapiko trabajé en esta plataforma de educación robótica para ROBOTIX. Desarrollé un editor de programación por bloques con Blockly y Monaco y una app para iPad que se conecta a robots mediante Bluetooth, con funciones de voz y visión.',
 		},
-		link: 'https://www.turtrip.travel/es/',
-		image: '/projects/turtrip-mockup.webp',
-		tags: [TAGS.PHP, TAGS.SQL, TAGS.BOOTSTRAP],
+		link: 'https://apps.apple.com/es/app/robotix-link-c360/id1575399336',
+		image: '/projects/robotix-ipad-mockup.webp',
+		tags: [TAGS.REACT, TAGS.IOS],
+		appStoreOnly: true,
 	},
 ]
 ---
@@ -114,7 +97,7 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
 	{
 		PROJECTS.map(
-			({ image, title, description, tags, link, link2, customImgClass }) => (
+			({ image, title, description, tags, link, link2, customImgClass, appStoreOnly }) => (
 				<article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
 					<div class="w-full md:w-1/2">
 						<div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -153,10 +136,12 @@ const PROJECTS = [
 									<LinkButton href={link}>
 										{link2 ? (
 											<Android class="size-4" />
+										) : appStoreOnly ? (
+											<Apple class="size-4" />
 										) : (
 											<Link class="size-4" />
 										)}
-										{link2 ? 'Android' : t('projects.preview')}
+										{link2 ? 'Android' : appStoreOnly ? 'App Store' : t('projects.preview')}
 									</LinkButton>
 								)}
 								{link2 && (

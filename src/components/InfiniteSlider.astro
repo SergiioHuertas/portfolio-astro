@@ -26,8 +26,43 @@ import Webpack from './icons/Webpack.astro'
 import Webstorm from './icons/Webstorm.astro'
 import Wordpress from './icons/Wordpress.astro'
 import XCode from './icons/XCode.astro'
+import React from './icons/React.astro'
+import Redux from './icons/Redux.astro'
+import Jest from './icons/Jest.astro'
+import Cypress from './icons/Cypress.astro'
+import PHP from './icons/PHP.astro'
 
 const SLIDERELEMENTS = {
+	REACT: {
+		name: 'React',
+		class: 'bg-[#61DAFB] text-black',
+		icon: React,
+	},
+	REACT_NATIVE: {
+		name: 'React Native',
+		class: 'bg-[#61DAFB] text-black',
+		icon: React,
+	},
+	REDUX: {
+		name: 'Redux',
+		class: 'bg-[#764ABC] text-white',
+		icon: Redux,
+	},
+	JEST: {
+		name: 'Jest',
+		class: 'bg-[#99425B] text-white',
+		icon: Jest,
+	},
+	CYPRESS: {
+		name: 'Cypress',
+		class: 'bg-emerald-200 text-teal-600',
+		icon: Cypress,
+	},
+	PHP: {
+		name: 'PHP',
+		class: 'bg-[#8892BF] text-white',
+		icon: PHP,
+	},
 	AWS: {
 		name: 'AWS',
 		class: 'bg-[#fab157] text-black',
@@ -164,6 +199,25 @@ const SLIDERELEMENTS = {
 		icon: XCode,
 	},
 }
+
+const featuredTech = [
+	SLIDERELEMENTS.REACT,
+	SLIDERELEMENTS.REACT_NATIVE,
+	SLIDERELEMENTS.TYPESCRIPT,
+	SLIDERELEMENTS.JAVASCRIPT,
+	SLIDERELEMENTS.REDUX,
+	SLIDERELEMENTS.JEST,
+	SLIDERELEMENTS.CYPRESS,
+	SLIDERELEMENTS.TAILWIND,
+	SLIDERELEMENTS.WEBPACK,
+	SLIDERELEMENTS.PHP,
+	SLIDERELEMENTS.AWS,
+	SLIDERELEMENTS.GIT,
+	SLIDERELEMENTS.BITBUCKET,
+	SLIDERELEMENTS.JIRA,
+	SLIDERELEMENTS.CONFLUENCE,
+	SLIDERELEMENTS.XCODE,
+]
 ---
 
 <div
@@ -173,7 +227,7 @@ const SLIDERELEMENTS = {
 		class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
 	>
 		{
-			Object.values(SLIDERELEMENTS).map((elem) => (
+			featuredTech.map((elem) => (
 				<li>
 					<span
 						class={`flex gap-x-2 rounded-full text-xs ${elem.class} py-1 px-2 items-center text-nowrap`}
@@ -190,7 +244,7 @@ const SLIDERELEMENTS = {
 		aria-hidden="true"
 	>
 		{
-			Object.values(SLIDERELEMENTS).map((elem) => (
+			featuredTech.map((elem) => (
 				<li>
 					<span
 						class={`flex gap-x-2 rounded-full text-xs ${elem.class} py-1 px-2 items-center text-nowrap`}
